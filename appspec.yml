@@ -1,0 +1,25 @@
+# Example appspec.yml file, which is used by CodeDeploy to deploy the
+# application to your destination.
+version: 0.0
+os: linux
+files:
+  # This will recursively copy all of the files that are in the local `src`
+  # folder to the `var/www` folder on the destination servers.
+  - source: ./src
+    destination: /usr/share/tomcat/webapps
+# For the hooks, consider using scripts as below. To make them easy to 
+# understand, I've chosen names for the scripts that match up with the
+# hook names.
+hooks:
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      timeout: 3600
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 180
+  ApplicationStart:
+    - location: scripts/application_start.sh
+      timeout: 3600
+  ValidateService:
+    - location: scripts/validate_service.sh
+      timeout: 3600

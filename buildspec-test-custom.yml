@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo 'Pre-build phase...'
+      - echo 'Any commands can go here to be completed in the pre-build stage'
+  build:
+    commands:
+      - echo 'Build phase...'
+      - echo "Build started on `date`"
+      - echo 'Any commands can go here to be completed in the build stage'

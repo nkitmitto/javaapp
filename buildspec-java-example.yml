@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo 'Install phase...'
+  pre_build:
+    commands:
+      - echo 'Pre-build phase...'
+  build:
+    commands:
+      - echo 'Build phase...'
+      - echo 'Building front-end...'
+      - echo "Build started on `date`"
+      - echo 'Front-end built'
+
+  post_build:
+    commands:
+      - echo 'Post-build phase...'
+      - echo "Build completed on `date`"
+artifacts:
+  files:
+    - '**/*'
